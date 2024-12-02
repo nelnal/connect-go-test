@@ -1,8 +1,8 @@
 version: v2
 plugins:
   - remote: buf.build/grpc/go:v1.4.0
-    out: app
+    out: gen
     opt: paths=source_relative
   - remote: buf.build/connectrpc/go:v1.16.2
-    out: app
+    out: gen
     opt: paths=source_relative
