@@ -8,7 +8,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	v1 "example/gen/greet/v1"
+	v1 "github.com/nelnal/connect-go-test/gen/greet/v1"
 	http "net/http"
 	strings "strings"
 )
