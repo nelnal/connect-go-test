@@ -4,8 +4,6 @@ modules:
 lint:
   use:
     - STANDARD
-  ignore:
-    - "invoice/recipient/v0"
 breaking:
   use:
     - WIRE_JSON
