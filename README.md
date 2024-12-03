@@ -24,7 +24,7 @@ run test
 $ runn run book/rest/greet.yaml
 (output)
 # call API by gRPC
-$ runn run book/grpc/greet.yaml
+$ runn run --scopes read:parent book/grpc/greet.yaml
 (output)
 ```
 

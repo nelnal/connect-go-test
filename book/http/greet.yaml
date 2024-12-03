@@ -11,4 +11,6 @@ steps:
             application/json:
               name: "Bob"
     test: current.res.status == 200
-  - dump: previous.res.body
+  # - test: steps[0].res.headers["Greet-Version"] == "v1"
+  - dump: steps[0].res.headers
+  - dump: steps[0].res.body
