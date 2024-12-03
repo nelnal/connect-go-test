@@ -1,0 +1,16 @@
+desc: Greet by gRPC
+runners:
+  greq:
+    addr: localhost:8080
+    tls: false
+    bufConfigs:
+      - ../../buf.yaml
+steps:
+  - greq:
+      greet.v1.GreetService/Greet:
+        headers:
+          user-agent: "runn"
+        message:
+          name: "Tom"
+    test: current.res.status == 0
+  - dump: previous.res.message
