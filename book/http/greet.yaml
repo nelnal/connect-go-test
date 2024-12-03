@@ -1,0 +1,14 @@
+desc: Greet by http
+runners:
+  req: http://localhost:8080
+steps:
+  - req:
+      /greet.v1.GreetService/Greet:
+        post:
+          headers:
+            User-Agent: "runn"
+          body:
+            application/json:
+              name: "Bob"
+    test: current.res.status == 200
+  - dump: previous.res.body
