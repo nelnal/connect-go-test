@@ -9,6 +9,7 @@ import (
 	"connectrpc.com/connect"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
+	"google.golang.org/grpc/metadata"
 
 	greetv1 "github.com/nelnal/connect-go-test/gen/greet/v1"
 	"github.com/nelnal/connect-go-test/gen/greet/v1/greetv1connect"
@@ -21,6 +22,10 @@ func (s *greetServer) Greet(
 	req *connect.Request[greetv1.GreetRequest],
 ) (*connect.Response[greetv1.GreetResponse], error) {
 	log.Println("Request headers: ", req.Header())
+
+	md, _ := metadata.FromIncomingContext(ctx)
+	log.Println("Metadata: ", md)
+
 	res := connect.NewResponse(&greetv1.GreetResponse{
 		Greeting: fmt.Sprintf("Hello, %s!", req.Msg.Name),
 	})
